@@ -64,7 +64,7 @@ data "aws_ami" "amzn-linux-2023-ami" {
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.amzn-linux-2023-ami.id
-  instance_type = "t2.medium"
+  instance_type = "t2.microg"
   subnet_id     = aws_subnet.sub-1.id
 
   cpu_options {
