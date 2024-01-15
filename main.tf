@@ -5,4 +5,5 @@ resource "aws_instance" "web" {
   tags = {
     Name = "MyInstance"
   }
+  count = 10
 }
