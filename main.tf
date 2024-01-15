@@ -2,7 +2,7 @@ resource "aws_instance" "web" {
   ami           = "ami-0d3f444bc76de0a79"
   instance_type = "t2.micro"
   key_name = "my-key"
-  security_groups = "my-sg"
+  security_groups = [my-sg]
 
   tags = {
     Name = "MyInstance"
@@ -37,7 +37,7 @@ resource "aws_security_group" "sg" {
   egress {
     from_port        = 22
     to_port          = 22
-    protocol         = tcp
+    protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
@@ -45,7 +45,7 @@ resource "aws_security_group" "sg" {
   egress {
     from_port        = 80
     to_port          = 80
-    protocol         = tcp
+    protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
